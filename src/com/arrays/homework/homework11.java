@@ -6,6 +6,7 @@ public class homework11 {                                        //main class "M
     public static int[] implArr = startMassive();               //initialization massive with random elements and range from 10 to -10 with using startMassive method
 
 
+
     public static void main(String[] args) {                    //program entry point
 
         int [] arrZ = Arrays.copyOf(implArr,implArr.length);    //copy generated with random numbers array "implArr" for create instance and to avoid overlap
