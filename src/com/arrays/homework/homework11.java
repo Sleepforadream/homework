@@ -2,7 +2,7 @@ package com.arrays.homework;                                    //package where 
 
 import java.util.*;                                             //import utilities for class
 
-public class homework11 {                                        //main class "MyProgram"
+public class homework11 {                                       //main class "homework11"
     public static int[] implArr = startMassive();               //initialization massive with random elements and range from 10 to -10 with using startMassive method
 
 

@@ -1,39 +1,26 @@
-package com.arrays.homework;                                        //package where file is located
+package com.arrays.homework;                                                        //package where file is located
 
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.ArrayList;                                                         //import ArrayList
 
-import static com.arrays.homework.homework12Variant1.*;
+import static com.arrays.homework.homework12Variant1.*;                             //import class "homework12Variant1"
 
-public class homework12Variant2 {                                   //main class "MyProgram"
+public class homework12Variant3 {                                                   //main class "homework12Variant3"
 
-    public static void main(String[] args) {                        //program entry point
-        String x = stringsBiggerThanAverageLength(implString);                       //initialization value x and add index the shortest string of array implString
-        System.out.println(x);                                      //sout index the shortest string and length of the shortest string
+    public static void main(String[] args) {                                        //program entry point
+
+        String x = stringsLessThanAverageLength(implString);                        //initialization value x and assign it strings less than average length in array
+        System.out.println(x);                                                      //sout strings less than average length in array
     }
 
-    static public double averageLength(ArrayList<String> str) {     //method then return length of the longest string in array
+    static public String stringsLessThanAverageLength(ArrayList<String> str) {      //method then return strings less than average length in array
 
-        double lengths = 0.0;
-        double count = 0.0;
+        String count = "";                                                          //initialization String count for storage strings less than average length
 
-        for (String s : str) {
-            lengths = lengths + s.length();
-            count++;
-        }
-
-        return lengths / count;
-    }
-
-    static public String stringsBiggerThanAverageLength(ArrayList<String> str) {
-
-        String count = "";
-
-        for (int i = 0; i < str.size(); i++) {
-            if (str.get(i).length() > averageLength(str)) {
+        for (int i = 0; i < str.size(); i++) {                                      //loop checking if strings are less than average length and adding them in "count"
+            if (str.get(i).length() < averageLength(str)) {
                 count = count + (str.get(i)) + " ";
             }
         }
-        return count;
+        return count;                                                               //return strings less than average length in array
     }
 }
