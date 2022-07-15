@@ -3,7 +3,7 @@ package com.arrays.homework;                                    //package where 
 import java.util.*;                                             //import utilities for class
 
 public class homework11 {                                       //main class "homework11"
-    public static int[] implArr = startMassive();               //initialization massive with random elements and range from 10 to -10 with using startMassive method
+    public static int[] implArr = getRandomMassive();           //initialization massive with random elements and range from 10 to -10 with using startMassive method
 
 
 
@@ -26,15 +26,15 @@ public class homework11 {                                       //main class "ho
         System.out.println(Arrays.toString(y));                 //sout array "implArr" with triples positive values before negative ones
 
         int [] arrP = Arrays.copyOf(implArr,implArr.length);    //copy generated with random numbers array "implArr" for create instance and to avoid overlap
-        double p = averageSubMin(arrP);                         //initialization method "averageSubMin" for array "implArr"
+        double p = getAverageSubMin(arrP);                      //initialization method "averageSubMin" for array "implArr"
         System.out.println(p);                                  //sout difference between the arithmetic mean and the value of the minimum element
 
         int [] arrO = Arrays.copyOf(implArr,implArr.length);    //copy generated with random numbers array "implArr" for create instance and to avoid overlap
-        Integer[] o = repeatOddIndex(arrO);                     //initialization method "repeatOddIndex" for array "implArr"
+        Integer[] o = getRepeatOddIndex(arrO);                  //initialization method "repeatOddIndex" for array "implArr"
         System.out.println(Arrays.toString(o));                 //sout array with repeat values with odd index
     }
 
-    static public int[] startMassive() {                        //method that generated massive with random elements and range from 10 to -10
+    static public int[] getRandomMassive() {                    //method that generated massive with random elements and range from 10 to -10
 
         int low = -10;                                          //initialization lower number in range
         int up = 10;                                            //initialization upper number in range
@@ -49,7 +49,7 @@ public class homework11 {                                       //main class "ho
         return arr;                                             //returns array "arr" with length 20 and random numbers, range whose from 10 to -10
     }
 
-    static public int minValue(int[] args) {                    //method that compute min value in array
+    static public int getMinValue(int[] args) {                 //method that compute min value in array
 
         int min = args[0];
         for (int i : args) {                                    //а loop with iteration for found min value
@@ -60,7 +60,7 @@ public class homework11 {                                       //main class "ho
         return min;                                             //returns min value
     }
 
-    static public int maxValue(int[] args) {                    //method that compute max value in array
+    static public int getMaxValue(int[] args) {                 //method that compute max value in array
 
         int max = args[0];                                      //а loop with iteration for found max value
         for (int i : args) {
@@ -71,9 +71,9 @@ public class homework11 {                                       //main class "ho
         return max;                                             //returns max value
     }
 
-    static public int maxNegativeNumberIndex(int[] args) {      //method that found max negative number in massive
+    static public int getMaxNegativeNumberIndex(int[] args) {   //method that found max negative number in massive
 
-        int maxNegNum = minValue(args);                         //get min value in array
+        int maxNegNum = getMinValue(args);                      //get min value in array
 
         int maxInd = 0;                                         //initialization variable for storage index max negative number
 
@@ -88,9 +88,9 @@ public class homework11 {                                       //main class "ho
         return maxInd;                                          //returns max negative number index
     }
 
-    static public int minPositiveNumberIndex(int[] args) {      //method that found min positive number in massive
+    static public int getMinPositiveNumberIndex(int[] args) {   //method that found min positive number in massive
 
-        int minPosNum = maxValue(args);                         //get max value in array
+        int minPosNum = getMaxValue(args);                      //get max value in array
 
         int minInd = 0;                                         //initialization variable for storage index min positive number
 
@@ -107,8 +107,8 @@ public class homework11 {                                       //main class "ho
 
     static public int[] swapMaxNegMinPos(int[] args) {          //method that swap max negative and min positive numbers in array
 
-        int minPos = minPositiveNumberIndex(args);              //put the min positive value index in new variable "minPos"
-        int maxNeg = maxNegativeNumberIndex(args);              //put the max negative value index in new variable "maxNeg"
+        int minPos = getMinPositiveNumberIndex(args);           //put the min positive value index in new variable "minPos"
+        int maxNeg = getMaxNegativeNumberIndex(args);           //put the max negative value index in new variable "maxNeg"
         int temp = args[minPos];                                //initialization variable "temp" for swap values on index
         args[minPos] = args[maxNeg];                            //swaps "minPos" and "negPos" with using variable "temp"
         args[maxNeg] = temp;
@@ -148,9 +148,9 @@ public class homework11 {                                       //main class "ho
         return args;                                            //returns the array with triple positive values before negative ones
     }
 
-    static public double averageSubMin(int[] args) {            //а method that return the difference between the arithmetic mean and the value of the minimum element
+    static public double getAverageSubMin(int[] args) {         //а method that return the difference between the arithmetic mean and the value of the minimum element
 
-        double min = minValue(args);                            //get min value in array
+        double min = getMinValue(args);                         //get min value in array
 
         double count = 0.0;                                     //initialization variable "count" for storage addend variables
 
@@ -160,12 +160,10 @@ public class homework11 {                                       //main class "ho
 
         double arMean = count / args.length;                    //find arithmetic mean of all values in array
 
-        double avSubMin = arMean - min;                         //get the difference between the arithmetic mean and the value of the minimum element
-
-        return avSubMin;                                        //returns difference between the arithmetic mean and the value of the minimum element
+        return arMean - min;                                    //returns difference between the arithmetic mean and the value of the minimum element
     }
 
-    static public Integer[] repeatOddIndex(int[] args) {        //a method that outputs all elements that occur more than once and whose indexes are odd
+    static public Integer[] getRepeatOddIndex(int[] args) {     //a method that outputs all elements that occur more than once and whose indexes are odd
 
         ArrayList <Integer> arr = new ArrayList<>();            //create new ArrayList "arr" where will contain elements
 
