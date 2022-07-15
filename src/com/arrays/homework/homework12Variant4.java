@@ -8,50 +8,64 @@ public class homework12Variant4 {                                               
 
     public static void main(String[] args) {                                                    //program entry point
 
-        String z = stringMinDifferentSymbols(implString);                                       //initialize the value of z and assign it the string with the least repetition of characters
-        System.out.println(z);                                                                  //sout string with the least repeated characters
+        String strMinDiffSymbols = getStrMinDiffSymbols(implString);                            //initialization method "getStrMinDiffSymbols"
+        System.out.println(strMinDiffSymbols);                                                  //sout string with the least repeated characters
     }
 
-    static public ArrayList<Integer> quantityOfDifferentSymbols(ArrayList<String> str) {        //method then return special index quantity of different symbols in array
+    /**
+     * Returns array with quantity of unique symbols in string
+     *
+     * @param str array from which quantity of unique symbols in string
+     * @return array with quantity of unique symbols in string
+     */
+    static public ArrayList<Integer> getQuantityOfUniqueSymbols(ArrayList<String> str) {
 
-        int count = 0;                                                                          //initialize counter for storage index of different symbols in string
+        int count = 0;                                                                          //initialize counter for storage repeating value
+        int unique = 0;                                                                         //initialize variable for storage unique elements
 
-        ArrayList<Integer>arr = new ArrayList<>();                                              //initialize ArrayList for storage index of different symbols in string
+        ArrayList<Integer> arr = new ArrayList<>();                                             //initialize ArrayList for storage index of different symbols in string
+        String charToStrVarJ;                                                                   //initialize variable to change type value "j" from character to string
+        String charToStrVarK;                                                                   //initialize variable to change type value "k"  from character to string
 
-        for (int i = 0; i < str.size(); i++) {                                                  //mega loop for calculate index of different symbols in string
-            for (int j = 0; j < str.get(i).length(); j++) {
-                for (int k = 0; k < str.get(i).length(); k++) {
-                    if (!(Character.toString(str.get(i).charAt(j))).equals(Character.toString(str.get(i).charAt(k)))) {
+        for (String s : str) {                                                                  //loop for calculate unique elements in string
+            for (int j = 0; j < s.length(); j++) {
+                for (int k = 0; k < s.length(); k++) {
+                    charToStrVarJ = Character.toString(s.charAt(j));
+                    charToStrVarK = Character.toString(s.charAt(k));
+                    if (charToStrVarJ.equals(charToStrVarK)) {
                         count++;
                     }
                 }
-            }
-            arr.add(count + str.get(i).length());
-            count = 0;
-        }
-        return arr;                                                                             //return special index quantity of different symbols in array
-    }
-
-    static public Integer indexMinDifferentSymbols(ArrayList<String> str) {                     //method then return index string with less repetition of characters
-
-        ArrayList<Integer> arr = quantityOfDifferentSymbols(implString);                        //initialize ArrayList and assign it array indexes quantity of different symbols
-
-        int min = (arr.get(0));                                                                 //initialize variable with 0 index for storage index comparisons in loop
-
-        int index = 0;                                                                          //initialize variable with 0 for storage index string less repetition of characters
-
-            for (int i = 0; i < arr.size(); i++) {                                              //loop for find index string less repetition of characters
-                if (arr.get(i) < min) {
-                    min = arr.get(i);
-                    index = i;
+                if (count == 1) {
+                    unique++;
                 }
+                count = 0;
             }
-        return index;                                                                           //return index string with less repetition of characters
+            arr.add(unique);
+            unique = 0;
+        }
+        return arr;
     }
 
-    static public String stringMinDifferentSymbols(ArrayList<String> str) {                     //method then return string with the least repetition of characters
+    /**
+     * Returns string with the minimum repetition of characters
+     *
+     * @param str array from which get string with the least repetition of characters
+     * @return string with the minimum repetition of characters
+     */
+    static public String getStrMinDiffSymbols(ArrayList<String> str) {
 
-        return str.get(indexMinDifferentSymbols(str));                                          //return strings string with the least repetition of characters through index
+        ArrayList<Integer> arr = getQuantityOfUniqueSymbols(str);
+
+        int min = (arr.get(0));
+        int index = 0;
+
+        for (int i = 0; i < arr.size(); i++) {                                              //loop for find index string less repetition of characters
+            if (arr.get(i) < min) {
+                min = arr.get(i);
+                index = i;
+            }
+        }
+        return str.get(index);
     }
-
 }
