@@ -3,9 +3,9 @@ package com.arrays.homework;                                                    
 import java.util.ArrayList;
 
 import static com.arrays.homework.homework12Variant1.implString;
-import static com.arrays.homework.homework12Variant4.*;
+import static com.arrays.homework.homework12Variant4.getQuantityOfUniqueSymbols;
 
-public class homework12Variant5 {                                                               //main class "homework12Variant5"
+public class homework12Variant6 {                                                               //main class "homework12Variant6"
 
     public static void main(String[] args) {                                                    //program entry point
 

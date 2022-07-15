@@ -8,19 +8,25 @@ public class homework12Variant3 {                                               
 
     public static void main(String[] args) {                                        //program entry point
 
-        String x = stringsLessThanAverageLength(implString);                        //initialization value x and assign it strings less than average length in array
-        System.out.println(x);                                                      //sout strings less than average length in array
+        String strLessThanAverLength = getStrLessThanAverLength(implString);        //initialization method "getStrLessThanAverLength"
+        System.out.println(strLessThanAverLength);                                  //sout strings less than average length in array
     }
 
-    static public String stringsLessThanAverageLength(ArrayList<String> str) {      //method then return strings less than average length in array
+    /**
+     * Returns strings less than average length
+     *
+     * @param str array from which get strings less than average length
+     * @return strings less than average length
+     */
+    static public String getStrLessThanAverLength(ArrayList<String> str) {
 
         String count = "";                                                          //initialization String count for storage strings less than average length
 
         for (int i = 0; i < str.size(); i++) {                                      //loop checking if strings are less than average length and adding them in "count"
-            if (str.get(i).length() < averageLength(str)) {
+            if (str.get(i).length() < getAverageLength(str)) {
                 count = count + (str.get(i)) + " ";
             }
         }
-        return count;                                                               //return strings less than average length in array
+        return count;
     }
 }

@@ -8,19 +8,25 @@ public class homework12Variant2 {                                               
 
     public static void main(String[] args) {                                        //program entry point
 
-        String x = stringsBiggerThanAverageLength(implString);                      //initialization value x and assign it strings bigger than average length in array
-        System.out.println(x);                                                      //sout strings bigger than average length in array
+        String strBiggerThanAverLength = getStrBiggerThanAverLength(implString);    //initialization method "getStrBiggerThanAverLength"
+        System.out.println(strBiggerThanAverLength);                                //sout strings bigger than average length in array
     }
 
-    static public String stringsBiggerThanAverageLength(ArrayList<String> str) {    //method then return strings bigger than average length in array
+    /**
+     * Returns strings bigger than average length
+     *
+     * @param str array from which get strings bigger than average length
+     * @return strings bigger than average length
+     */
+    static public String getStrBiggerThanAverLength(ArrayList<String> str) {
 
         String count = "";                                                          //initialization String count for storage strings bigger than average length
 
         for (int i = 0; i < str.size(); i++) {                                      //loop checking if strings are greater than average length and adding them in "count"
-            if (str.get(i).length() > averageLength(str)) {
+            if (str.get(i).length() > getAverageLength(str)) {
                 count = count + (str.get(i)) + " ";
             }
         }
-        return count;                                                               //return strings bigger than average length in array
+        return count;
     }
 }
