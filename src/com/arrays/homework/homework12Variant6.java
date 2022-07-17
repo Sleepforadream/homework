@@ -3,32 +3,51 @@ package com.arrays.homework;                                                    
 import java.util.ArrayList;
 
 import static com.arrays.homework.homework12Variant1.implString;
-import static com.arrays.homework.homework12Variant4.getQuantityOfUniqueSymbols;
 
 public class homework12Variant6 {                                                               //main class "homework12Variant6"
 
     public static void main(String[] args) {                                                    //program entry point
 
-        String stringWithUniqueSymbols = getStringWithUniqueSymbols(implString);                //initialization method "getStringWithUniqueSymbols"
-        System.out.println(stringWithUniqueSymbols);                                            //sout string with only unique symbols
+        String stringWithOnlyNumbers = getStringWithOnlyNumbers(implString);                    //initialization method "getStringWithOnlyNumbers"
+        System.out.println(stringWithOnlyNumbers);                                              //sout string with only numbers
     }
 
     /**
-     * Returns string with only unique symbols
+     * Returns string with only numbers
      *
-     * @param str array from which get string with only unique symbols
-     * @return string with only unique symbols
+     * @param str array from which get string with only numbers
+     * @return string with only numbers
      */
-    static public String getStringWithUniqueSymbols(ArrayList<String> str) {
+    static public String getStringWithOnlyNumbers(ArrayList<String> str) {
 
-        ArrayList<Integer> arr = getQuantityOfUniqueSymbols(str);                               //initialize ArrayList for get array with quantity of unique symbols
-        String index = "";                                                                      //initialize variable for storage index string with only unique symbols
+        int count = 0;                                                                          //initialize counter for storage repeating value
+        int num = 0;                                                                            //initialize variable for storage number elements
+        String charToStrVarJ;                                                                   //variable for storage char in string
+        String onlyNumbers = "";                                                                //variable for return only number string
 
-        for (int i = 0; i < arr.size(); i++) {                                                  //loop for find index string with only unique symbols
-            if (str.get(i).length() == arr.get(i)) {
-                index = str.get(i);
-            }
+        String[] numbers = new String[10];                                                      //array with numbers from 0 to 9 for check validation chars in string
+        for (int i = 0; i < numbers.length; i++) {
+            numbers[i] = "" + i;
         }
-        return index;
+
+        for (String s : str) {                                                                  //loop for calculate only numbers in string
+            for (int j = 0; j < s.length(); j++) {
+                for (int k = 0; k < 10; k++) {
+                    charToStrVarJ = Character.toString(s.charAt(j));
+                    if (charToStrVarJ.equals(numbers[k])) {
+                        count++;
+                    }
+                }
+                if (count == 1) {
+                    num++;
+                }
+                count = 0;
+            }
+            if (num == s.length()) {
+                onlyNumbers = s;
+            }
+            num = 0;
+        }
+        return onlyNumbers;
     }
 }
