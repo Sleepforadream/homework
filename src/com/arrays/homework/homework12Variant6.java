@@ -22,7 +22,7 @@ public class homework12Variant6 {                                               
 
         int count = 0;                                                                          //initialize counter for storage repeating value
         int num = 0;                                                                            //initialize variable for storage number elements
-        String charToStrVarJ;                                                                   //variable for storage char in string
+        String charToStringVar;                                                                   //variable for storage char in string
         String onlyNumbers = "";                                                                //variable for return only number string
 
         String[] numbers = new String[10];                                                      //array with numbers from 0 to 9 for check validation chars in string
@@ -33,8 +33,8 @@ public class homework12Variant6 {                                               
         for (String s : str) {                                                                  //loop for calculate only numbers in string
             for (int j = 0; j < s.length(); j++) {
                 for (int k = 0; k < 10; k++) {
-                    charToStrVarJ = Character.toString(s.charAt(j));
-                    if (charToStrVarJ.equals(numbers[k])) {
+                    charToStringVar = Character.toString(s.charAt(j));
+                    if (charToStringVar.equals(numbers[k])) {
                         count++;
                     }
                 }
