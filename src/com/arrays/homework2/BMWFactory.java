@@ -4,10 +4,8 @@ import java.util.Random;
 
 public class BMWFactory implements CarFactory {
 
-    public Car createCar() {
-        Random random = new Random();
-        BMW[] BMWModels = BMW.values();
-        int pos = random.nextInt(BMWModels.length);
-        return BMWModels[pos];
+    @Override
+    public Car createCar(Model model) {
+        return new BMW((BMWModel) model);
     }
 }
