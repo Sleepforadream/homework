@@ -1,14 +1,16 @@
 package com.arrays.homework2;
 
-import java.util.Random;
+public enum Audi implements Car {
+    Audi_A3,
+    Audi_A4,
+    Audi_A6,
+    Audi_Q5,
+    Audi_Q3,
+    Audi_Q7,
+    Audi_A5,
+    Audi_A8;
 
-public class Audi implements Car {
-
-    @Override
-    public String getModel() {
-        Random random = new Random();
-        String[] AudiModels = { "A3", "A4", "A6", "Q5", "Q3", "Q7", "A5", "A8" };
-        int pos = random.nextInt(AudiModels.length);
-        return AudiModels[pos];
+    public void drive() {
+        System.out.println("Drive Audi");
     }
 }

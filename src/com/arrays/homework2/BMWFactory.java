@@ -1,8 +1,13 @@
 package com.arrays.homework2;
 
-public class BMWFactory implements CarFactory{
-    @Override
+import java.util.Random;
+
+public class BMWFactory implements CarFactory {
+
     public Car createCar() {
-        return new BMW();
+        Random random = new Random();
+        BMW[] BMWModels = BMW.values();
+        int pos = random.nextInt(BMWModels.length);
+        return BMWModels[pos];
     }
 }
