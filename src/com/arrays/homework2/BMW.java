@@ -1,16 +1,25 @@
 package com.arrays.homework2;
 
-public enum BMW implements Car {
-    BMW_X1,
-    BMW_X3,
-    BMW_X5,
-    BMW_X7,
-    BMW_Z4,
-    BMW_M3,
-    BMW_M5,
-    BMW_M8;
+public class BMW implements Car {
+    private final BMWModel model;
 
+    public BMWModel getModel() {
+        return model;
+    }
+
+    public BMW(BMWModel model) {
+        this.model = model;
+    }
+
+    @Override
+    public String toString() {
+        return "BMW{" +
+                "model=" + model +
+                '}';
+    }
+
+    @Override
     public void drive() {
-        System.out.println("Drive BMW");
+
     }
 }

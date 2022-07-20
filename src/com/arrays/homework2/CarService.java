@@ -3,6 +3,13 @@ package com.arrays.homework2;
 import java.util.*;
 
 public class CarService {
+    public CarService(AudiFactory audiFactory, BMWFactory bmwFactory) {
+        this.audiFactory = audiFactory;
+        this.bmwFactory = bmwFactory;
+    }
+
+    private final AudiFactory audiFactory;
+    private final BMWFactory bmwFactory;
 
     /**
      * Create car by mark
@@ -10,11 +17,11 @@ public class CarService {
      * @param mark created type of car
      * @return CarFactory which create car by mark
      */
-    static CarFactory createCarByMark(String mark) {
-        if (mark.equalsIgnoreCase("Audi")) {
-            return new AudiFactory();
-        } else if (mark.equalsIgnoreCase("BMW")) {
-            return new BMWFactory();
+    Car createCarByMark(Model mark) {
+        if (mark instanceof AudiModel) {
+            return audiFactory.createCar(mark);
+        } else if (mark instanceof BMWModel) {
+            return bmwFactory.createCar(mark);
         } else {
             throw new RuntimeException(mark + " is unknown mark.");
         }
@@ -26,7 +33,7 @@ public class CarService {
      * @param car created type of car
      * @return array with random number of random models of cars
      */
-    static Car[] getRandomNumberOfRandomModelsOfCars(CarFactory car) {
+     Car[] getRandomNumberOfRandomModelsOfCars(CarFactory car) {
         int low = 1;                                                         //initialization lower number in range
         int up = 6;                                                          //initialization upper number in range
 
@@ -39,8 +46,8 @@ public class CarService {
         return arr;
     }
 
-    static List<Car> createAllRandomModels() {
-        CarFactory AudiModels = createCarByMark("Audi");
+     List<Car> createAllRandomModels() {
+        CarFactory AudiModels = createCarByMark();
         Car[] RandomNumberOfRandomModelsOfBMW = getRandomNumberOfRandomModelsOfCars(AudiModels);
 
         CarFactory BMWModels = createCarByMark("BMW");
@@ -56,7 +63,7 @@ public class CarService {
         return allModels;
     }
 
-    static Integer getNumberOfEquivalentObjects(List<Car> allModels) {
+     Integer getNumberOfEquivalentObjects(List<Car> allModels) {
         Map<Car, Integer> counter = new HashMap<>();                                                //Count how many times each value occurs in an array
         for (Car x : allModels) {
             int newValue = counter.getOrDefault(x, 0) + 1;
@@ -72,11 +79,19 @@ public class CarService {
         return count;
     }
 
-    static String stringRepresentationOfAnArray(List<Car> arr) {
+     String stringRepresentationOfAnArray(List<Car> arr) {
         String count = "";
         for (Car allModel : arr) {
             count = (count + allModel + " ");
         }
         return count;
+    }
+
+    public AudiFactory getAudiFactory() {
+        return audiFactory;
+    }
+
+    public BMWFactory getBmwFactory() {
+        return bmwFactory;
     }
 }
