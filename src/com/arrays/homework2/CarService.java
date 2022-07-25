@@ -41,24 +41,24 @@ public class CarService {
 
         Car[] arr = new Car[(int) (Math.random() * range) + low];            //initialization array with random length
         for (int i = 0; i < arr.length; i++) {                               //array iteration
-            arr[i] = car.createCar();                                        //assigning random models to an array with random length
+        //    arr[i] = car.createCar();                                      //assigning random models to an array with random length
         }
         return arr;
     }
 
      List<Car> createAllRandomModels() {
-        CarFactory AudiModels = createCarByMark();
-        Car[] RandomNumberOfRandomModelsOfBMW = getRandomNumberOfRandomModelsOfCars(AudiModels);
+        //CarFactory AudiModels = createCarByMark();
+        //Car[] RandomNumberOfRandomModelsOfBMW = getRandomNumberOfRandomModelsOfCars(AudiModels);
 
-        CarFactory BMWModels = createCarByMark("BMW");
-        Car[] RandomNumberOfRandomModelsOfAudi = getRandomNumberOfRandomModelsOfCars(BMWModels);
+        //CarFactory BMWModels = createCarByMark("BMW");
+        //Car[] RandomNumberOfRandomModelsOfAudi = getRandomNumberOfRandomModelsOfCars(BMWModels);
 
         List<Car> allModels = new ArrayList<>();
-        List<Car> randomListOfModelsOfBMW = Arrays.asList(RandomNumberOfRandomModelsOfBMW);
-        List<Car> randomListOfModelsOfAudi = Arrays.asList(RandomNumberOfRandomModelsOfAudi);
+        //List<Car> randomListOfModelsOfBMW = Arrays.asList(RandomNumberOfRandomModelsOfBMW);
+        //List<Car> randomListOfModelsOfAudi = Arrays.asList(RandomNumberOfRandomModelsOfAudi);
 
-        allModels.addAll(randomListOfModelsOfAudi);
-        allModels.addAll(randomListOfModelsOfBMW);
+        //allModels.addAll(randomListOfModelsOfAudi);
+        //allModels.addAll(randomListOfModelsOfBMW);
 
         return allModels;
     }
