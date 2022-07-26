@@ -5,6 +5,6 @@ import java.util.Arrays;
 public class main extends ServiceDoor {
 
     public static void main(String[] args) {
-        getArraysWithSameTypes();
+        printArraysWithSameTypes();
     }
 }
