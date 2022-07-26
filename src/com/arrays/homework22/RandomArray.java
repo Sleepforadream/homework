@@ -1,11 +1,8 @@
 package com.arrays.homework22;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class RandomArray {
-    static ArrayList<Door> randomSofiaDoors = new ArrayList<>();
-    static ArrayList<Door> randomKdDoors = new ArrayList<>();
     static Door[] getRandomDoors() {
         int low = 1;                                                         //initialization lower number in range
         int up = 7;                                                          //initialization upper number in range
@@ -17,10 +14,8 @@ public class RandomArray {
             int x = new Random().nextInt(2);
             if (x == 1) {
                 arr[i] = createRandomSofiaDoor();
-                randomSofiaDoors.add(arr[i]);
             } else {
                 arr[i] = createRandomKdDoor();
-                randomKdDoors.add(arr[i]);
             }
         }
         return arr;
@@ -69,6 +64,4 @@ public class RandomArray {
         KdModel z = randomKdModel();
         return new Kd(x, z, y);
     }
-
-
 }
