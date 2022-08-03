@@ -83,7 +83,7 @@ public class GiftBox<T extends Sweetness> {
     public Double getWeightOfGiftBoxInKg() {
         Double allWeight = 0.0;
         for (int i = 0; i < getLength(); i++){
-            allWeight = arrayGift[i].weightKg + allWeight;
+            allWeight = arrayGift[i].getWeightKg() + allWeight;
         }
         return allWeight;
     }
@@ -99,7 +99,7 @@ public class GiftBox<T extends Sweetness> {
         while (needIteration) {
             needIteration = false;
             for (int i = 1; i < arrayGift.length; i++) {
-                if (arrayGift[i].kilocaloriesPer100GramsOfProduct < arrayGift[i - 1].kilocaloriesPer100GramsOfProduct) {
+                if (arrayGift[i].getKilocaloriesPer100GramsOfProduct() < arrayGift[i - 1].getKilocaloriesPer100GramsOfProduct()) {
                     swap(arrayGift, i, i - 1);
                     needIteration = true;
                 }
@@ -111,8 +111,8 @@ public class GiftBox<T extends Sweetness> {
             maxWeight, Double minCalories, Double maxCalories) {
         String result = "";
         for (int i = 0; i < getLength(); i++) {
-            if (arrayGift[i].weightKg >= minWeight && arrayGift[i].weightKg <= maxWeight) {
-                if (arrayGift[i].kilocaloriesPer100GramsOfProduct >= minCalories && arrayGift[i].kilocaloriesPer100GramsOfProduct <= maxCalories) {
+            if (arrayGift[i].getWeightKg() >= minWeight && arrayGift[i].getWeightKg() <= maxWeight) {
+                if (arrayGift[i].getKilocaloriesPer100GramsOfProduct() >= minCalories && arrayGift[i].getKilocaloriesPer100GramsOfProduct() <= maxCalories) {
                     result = arrayGift[i] + " " + result;
                 }
             }

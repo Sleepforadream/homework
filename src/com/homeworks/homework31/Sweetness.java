@@ -2,9 +2,9 @@ package com.homeworks.homework31;
 
 public abstract class Sweetness implements SweetnessInterface {
 
-    protected Double weightKg;
+    private final Double weightKg;
 
-    protected Double kilocaloriesPer100GramsOfProduct;
+    private final Double kilocaloriesPer100GramsOfProduct;
 
     public Double getWeightKg() {
         return weightKg;
