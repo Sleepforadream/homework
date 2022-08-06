@@ -1,8 +1,14 @@
 package com.homeworks.homework41;
 
-import java.time.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Collections;
 
-public abstract class Student {
+import static com.homeworks.homework41.CoursesCatalog.*;
+
+public enum Students {
+    IvanovIvan("J2EE Developer", LocalDate.of(2022, 8, 5), javaServlets, strutsFramework),
+    PetrovPetr("Java Developer", LocalDate.of(2022, 8, 5), technologiesJava, JFCSwing, JDBC);
 
     private final String curriculum;
 
@@ -10,7 +16,7 @@ public abstract class Student {
 
     private final Courses[] Course;
 
-    public Student(String curriculum, LocalDate startDate, Courses ... course) {
+    Students(String curriculum, LocalDate startDate, Courses... course) {
         this.curriculum = curriculum;
         StartDate = startDate;
         Course = course;
@@ -28,11 +34,4 @@ public abstract class Student {
         return Course;
     }
 
-    public Integer getLearningHours() {
-        Integer count = 0;
-        for (int i = 0; i < getCourse().length; i++) {
-            count = getCourse()[i].getDurationHrs() + count;
-        }
-        return count;
-    }
 }

@@ -1,14 +1,16 @@
 package com.homeworks.homework41;
 
+import java.time.LocalTime;
+
 public abstract class Courses {
 
-    private final Integer durationHrs;
+    private final long durationHrs;
 
-    public Integer getDurationHrs() {
+    public long getDurationHrs() {
         return durationHrs;
     }
 
-    public Courses(Integer durationHrs) {
+    public Courses(long durationHrs) {
         this.durationHrs = durationHrs;
     }
 }
