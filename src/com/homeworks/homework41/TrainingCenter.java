@@ -21,5 +21,8 @@ public class TrainingCenter {
 
         System.out.println(ads);
 
+        System.out.println(IvanovIvan.getOverLearning());
+
+
     }
 }
