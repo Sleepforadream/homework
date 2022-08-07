@@ -1,16 +1,20 @@
 package com.homeworks.homework41;
 
-import java.time.LocalTime;
+public enum Courses {
 
-public abstract class Courses {
+    javaServlets(16),
+    strutsFramework(24),
+    technologiesJava(8),
+    JFCSwing(16),
+    JDBC(16);
 
     private final long durationHrs;
 
-    public long getDurationHrs() {
-        return durationHrs;
+    Courses(long durationHrs) {
+        this.durationHrs = durationHrs;
     }
 
-    public Courses(long durationHrs) {
-        this.durationHrs = durationHrs;
+    public long getDurationHrs() {
+        return durationHrs;
     }
 }
