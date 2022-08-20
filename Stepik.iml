@@ -7,5 +7,15 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/.jdks/openjdk-18.0.1.1/lib/poi-bin-5.2.2" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/.jdks/openjdk-18.0.1.1/lib/poi-bin-5.2.2" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>
